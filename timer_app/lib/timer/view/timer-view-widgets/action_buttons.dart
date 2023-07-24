@@ -14,12 +14,11 @@ class ActionButtons extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             ...switch (state) {
-              TimerInitial() => [
+              TimerRunComplete() => [
                   FloatingActionButton(
-                    child: const Icon(Icons.play_arrow),
-                    onPressed: () => context
-                        .read<TimerBloc>()
-                        .add(TimerStarted(duration: state.duration)),
+                    child: const Icon(Icons.replay),
+                    onPressed: () =>
+                        context.read<TimerBloc>().add(const TimerReset()),
                   ),
                 ],
               TimerRunInProgress() => [
@@ -46,13 +45,14 @@ class ActionButtons extends StatelessWidget {
                         context.read<TimerBloc>().add(const TimerReset()),
                   ),
                 ],
-              TimerRunComplete() => [
+              TimerInitial() => [
                   FloatingActionButton(
-                    child: const Icon(Icons.replay),
-                    onPressed: () =>
-                        context.read<TimerBloc>().add(const TimerReset()),
+                    child: const Icon(Icons.play_arrow),
+                    onPressed: () => context
+                        .read<TimerBloc>()
+                        .add(TimerStarted(duration: state.duration)),
                   ),
-                ]
+                ],
             }
           ],
         );

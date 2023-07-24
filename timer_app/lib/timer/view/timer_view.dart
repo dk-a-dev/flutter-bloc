@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:timer_app/timer/view/timer-view-widgets/action_buttons.dart';
 import 'package:timer_app/timer/view/timer-view-widgets/background.dart';
 import 'package:timer_app/timer/view/timer-view-widgets/timer_text.dart';
-import 'package:timer_app/timer/view/timer-view-widgets/action_buttons.dart';
 
 
 class TimerView extends StatelessWidget {

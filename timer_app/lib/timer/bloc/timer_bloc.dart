@@ -44,7 +44,7 @@ class TimerBloc extends Bloc<TimerEvent, TimerState> {
   }
 
   void _onResumed(TimerResumed resume, Emitter<TimerState> emit) {
-    if (state is TimerPaused) {
+    if (state is TimerRunPause) {
       _tickerSubscription?.resume();
       emit(TimerRunInProgress(state.duration));
     }
